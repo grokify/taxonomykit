@@ -18,7 +18,7 @@ Hierarchical taxonomy toolkit for Go: load, validate, navigate, localize, and co
 
 ## Status
 
-Pre-release. The design is specified in [`docs/specs/`](docs/specs/) (PRD, TRD, PLAN, ROADMAP); implementation follows the roadmap phases.
+v0.1 in progress: the core tree, codecs, schema and CLI are implemented; SKOS interchange and document operations follow in v0.2. The design is specified in [`docs/specs/`](docs/specs/) (PRD, TRD, PLAN, ROADMAP).
 
 ## Why
 
@@ -26,7 +26,7 @@ Most applications that classify things — content sites, product catalogs, know
 
 The model is deliberately close to [SKOS](https://www.w3.org/TR/skos-reference/) (concepts with `broader`/`narrower` relations and per-language preferred and alternative labels), so taxonomies can be exchanged with the rest of the world without a redesign.
 
-## Intended API (v0.1 target)
+## Usage
 
 ```go
 import "github.com/grokify/taxonomykit"
@@ -43,15 +43,45 @@ if err != nil {
     return err // cycles, orphans, duplicate ids or slugs, missing default labels
 }
 
-tree.Lineage("patent")          // [all law patent]
-tree.Breadcrumb("patent", "es") // [{Derecho derecho law} {Patent patent patent}] — falls back to "en"
-tree.Children("all")            // ordered deterministically
+tree.Lineage("patent")          // all → law → patent (through primary parents)
+tree.Lineages("mortgage")       // every root path of a multi-parent node
+tree.Breadcrumb("patent", "es") // Derecho(/derecho, es) › Patent(/patent, en) — each crumb says which language it fell back to
+tree.Children("all")            // ordered: explicit Order, then default-language name, then id
 tree.Siblings("patent")
 tree.IsLeaf("patent")           // true
 tree.BySlug("es", "derecho")    // law
 ```
 
-A flat CSV/TSV/PSV codec, a JSON document format with a generated JSON Schema, and a `taxonomykit` CLI (`validate`, `convert`, `tree`) are part of v0.1; SKOS JSON-LD import/export follows.
+The same example runs as `ExampleBuild` in `example_test.go`.
+
+### Files
+
+```go
+doc, err := flat.Read(f, flat.PSV, flat.Options{})       // or CSV / TSV; header row or flat.Columns
+tree, err := doc.Build()                                 // uses the document's default language
+data, err := doc.JSON()                                  // deterministic JSON; schema in package schema
+```
+
+Flat files have one row per node and language. A node listed twice with different parents becomes a multi-parent node rather than silently keeping the last parent:
+
+```text
+lang | parent           | id       | slug     | name
+en   |                  | all      | all      | All
+en   | all              | law      | law      | Law
+es   | all              | law      | derecho  | Derecho
+en   | finance          | mortgage | mortgage | Mortgage
+en   | realestate       | mortgage | mortgage | Mortgage
+```
+
+### CLI
+
+```sh
+go install github.com/grokify/taxonomykit/cmd/taxonomykit@latest
+taxonomykit validate topics.psv              # every problem, exit 1 if any
+taxonomykit convert topics.psv --to json     # csv | tsv | psv | json
+taxonomykit tree topics.json --lang es       # indented listing with slugs
+taxonomykit lineage topics.psv mortgage --all
+```
 
 ## License
 

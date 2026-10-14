@@ -11,11 +11,11 @@ Phase status is always derived from member RMI statuses, never set directly. Rev
 ## Phase 1 — Core Tree, Codecs & CLI
 **Theme:** A validated, deterministic, localized taxonomy tree with polyhierarchy, loadable from tabular or JSON files, usable from Go and the command line.
 
-- [ ] `RMI-TAXONOMYKIT-001` Scaffold: go.mod, MIT LICENSE, README, CI (shared Go CI + Lint, CGO_ENABLED=0), CHANGELOG.json
-- [ ] `RMI-TAXONOMYKIT-002` Types and validation: Node/Label/Labels/Document, every rule with a problem code and an invalid fixture; `Validate` (all problems) and `Build` (first error)
-- [ ] `RMI-TAXONOMYKIT-003` Tree navigation: indexing, ordering rule with `Order`/name/id and `WithOrderBy`; Roots, Parent(s), Children, Siblings, Lineage(s), Descendants, Leaves, IsLeaf, Depth, LCA, iterators; property tests
-- [ ] `RMI-TAXONOMYKIT-004` Localization: BCP-47 tag normalization, fallback chain, `Label`, `Breadcrumb` with per-crumb language, `BySlug`, slug-scope option
-- [ ] `RMI-TAXONOMYKIT-005` Codecs: flat CSV/TSV/PSV reader and writer (header or column mapping, comments, polyhierarchy by repetition), JSON Document with generated and embedded JSON Schema linted in CI
+- [x] `RMI-TAXONOMYKIT-001` Scaffold: go.mod, MIT LICENSE, README, CI (shared Go CI + Lint, CGO_ENABLED=0), CHANGELOG.json
+- [x] `RMI-TAXONOMYKIT-002` Types and validation: Node/Label/Labels/Document, every rule with a problem code and an invalid fixture; `Validate` (all problems) and `Build` (first error)
+- [x] `RMI-TAXONOMYKIT-003` Tree navigation: indexing, ordering rule with `Order`/name/id and `WithOrderBy`; Roots, Parent(s), Children, Siblings, Lineage(s), Descendants, Leaves, IsLeaf, Depth, LCA, iterators; property tests
+- [x] `RMI-TAXONOMYKIT-004` Localization: BCP-47 tag normalization, fallback chain, `Label`, `Breadcrumb` with per-crumb language, `BySlug`, slug-scope option
+- [x] `RMI-TAXONOMYKIT-005` Codecs: flat CSV/TSV/PSV reader and writer (header or column mapping, comments, polyhierarchy by repetition), JSON Document with generated and embedded JSON Schema linted in CI
 - [ ] `RMI-TAXONOMYKIT-006` CLI `taxonomykit validate|convert|tree|lineage`, CLI tests, CHANGELOG, coverage badge, v0.1.0 release
 
 ## Phase 2 — Interchange & Tree Operations

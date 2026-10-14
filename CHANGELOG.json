@@ -1,0 +1,19 @@
+{
+  "irVersion": "1.0",
+  "project": "taxonomykit",
+  "repository": "https://github.com/grokify/taxonomykit",
+  "versioning": "semver",
+  "commitConvention": "conventional",
+  "maintainers": ["grokify"],
+  "unreleased": {
+    "added": [
+      { "description": "Validated, immutable `Tree` built from a flat `[]Node` list: polyhierarchy with an explicit primary parent, deterministic sibling ordering (explicit `Order`, then default-language name, then id), and navigation (`Roots`, `Parent(s)`, `Children`, `Siblings`, `Lineage(s)`, `Descendants`, `Leaves`, `IsLeaf`, `Depth`, `LCA`, `Walk`, `All`)" },
+      { "description": "`Validate` reporting every structural problem with a stable code (`id.*`, `parent.*`, `cycle`, `root.none`, `label.default.missing`, `slug.duplicate`, `lang.invalid`); `Build` returns the first" },
+      { "description": "Localization: lowercase BCP-47 tags, `FallbackChain` (exact → language → default), `Label`, `Name`, `Slug`, `Breadcrumb` with the language each crumb resolved to, and `BySlug` over effective slugs" },
+      { "description": "`flat` codec for CSV, TSV and PSV with a header row or column mapping, comments, one row per node and language, and multi-parent nodes from repeated rows" },
+      { "description": "JSON `Document` format with strict parsing, deterministic encoding, and a Go-generated JSON Schema embedded in `schema`" },
+      { "description": "`taxonomykit` CLI: `validate`, `convert`, `tree`, `lineage`" }
+    ]
+  },
+  "releases": []
+}
