@@ -1,0 +1,89 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/grokify/taxonomykit/schema/document.schema.json",
+  "$ref": "#/$defs/Document",
+  "$defs": {
+    "Document": {
+      "properties": {
+        "version": {
+          "type": "string"
+        },
+        "defaultLang": {
+          "type": "string"
+        },
+        "nodes": {
+          "items": {
+            "$ref": "#/$defs/Node"
+          },
+          "type": "array"
+        }
+      },
+      "additionalProperties": false,
+      "type": "object",
+      "required": [
+        "version",
+        "defaultLang",
+        "nodes"
+      ]
+    },
+    "Label": {
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "slug": {
+          "type": "string"
+        },
+        "alt": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        }
+      },
+      "additionalProperties": false,
+      "type": "object",
+      "required": [
+        "name"
+      ]
+    },
+    "Labels": {
+      "additionalProperties": {
+        "$ref": "#/$defs/Label"
+      },
+      "type": "object"
+    },
+    "Node": {
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "parents": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "labels": {
+          "$ref": "#/$defs/Labels"
+        },
+        "order": {
+          "type": "integer"
+        },
+        "attrs": {
+          "additionalProperties": {
+            "type": "string"
+          },
+          "type": "object"
+        }
+      },
+      "additionalProperties": false,
+      "type": "object",
+      "required": [
+        "id",
+        "labels"
+      ]
+    }
+  },
+  "title": "TaxonomyKit Document"
+}
