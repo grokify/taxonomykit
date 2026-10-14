@@ -20,7 +20,7 @@
  [loc-svg]: https://tokei.rs/b1/github/grokify/taxonomykit
  [repo-url]: https://github.com/grokify/taxonomykit
  [license-svg]: https://img.shields.io/badge/license-MIT-blue.svg
- [license-url]: https://github.com/grokify/taxonomykit/blob/master/LICENSE
+ [license-url]: https://github.com/grokify/taxonomykit/blob/main/LICENSE
 
 Hierarchical taxonomy toolkit for Go: load, validate, navigate, localize, and convert category trees — structure only, you bring the content.
 
