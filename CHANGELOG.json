@@ -5,15 +5,23 @@
   "versioning": "semver",
   "commitConvention": "conventional",
   "maintainers": ["grokify"],
-  "unreleased": {
-    "added": [
-      { "description": "Validated, immutable `Tree` built from a flat `[]Node` list: polyhierarchy with an explicit primary parent, deterministic sibling ordering (explicit `Order`, then default-language name, then id), and navigation (`Roots`, `Parent(s)`, `Children`, `Siblings`, `Lineage(s)`, `Descendants`, `Leaves`, `IsLeaf`, `Depth`, `LCA`, `Walk`, `All`)" },
-      { "description": "`Validate` reporting every structural problem with a stable code (`id.*`, `parent.*`, `cycle`, `root.none`, `label.default.missing`, `slug.duplicate`, `lang.invalid`); `Build` returns the first" },
-      { "description": "Localization: lowercase BCP-47 tags, `FallbackChain` (exact → language → default), `Label`, `Name`, `Slug`, `Breadcrumb` with the language each crumb resolved to, and `BySlug` over effective slugs" },
-      { "description": "`flat` codec for CSV, TSV and PSV with a header row or column mapping, comments, one row per node and language, and multi-parent nodes from repeated rows" },
-      { "description": "JSON `Document` format with strict parsing, deterministic encoding, and a Go-generated JSON Schema embedded in `schema`" },
-      { "description": "`taxonomykit` CLI: `validate`, `convert`, `tree`, `lineage`" }
-    ]
-  },
-  "releases": []
+  "unreleased": {},
+  "releases": [
+    {
+      "version": "v0.1.0",
+      "date": "2026-10-14",
+      "commit": "2ded4c1",
+      "highlights": [
+        { "description": "A validated, immutable taxonomy tree with polyhierarchy, deterministic ordering and per-language labels, built from a flat node list or a CSV/TSV/PSV/JSON file, with a CLI to validate, convert and print it.", "commit": "81a61eb" }
+      ],
+      "added": [
+        { "description": "`Tree` built by `Build` from `[]Node`: multiple parents per node with `Parents[0]` as the primary parent; deterministic sibling ordering (explicit `Order`, then default-language name, then id; `WithOrderBy(OrderByID)` to skip names); navigation via `Roots`, `Parent`, `Parents`, `Children`, `Siblings`, `Lineage`, `Lineages`, `Descendants`, `Leaves`, `IsLeaf`, `Depth`, `LCA`, `Walk`, `WalkFrom` and the `All` iterator; `Document` to export the nodes back", "commit": "81a61eb" },
+        { "description": "`Validate` reporting every structural problem with a stable code (`id.invalid`, `id.duplicate`, `parent.missing`, `parent.self`, `parent.duplicate`, `cycle`, `root.none`, `label.default.missing`, `slug.duplicate`, `lang.invalid`); `Build` returns the first; `WithSlugScope(SlugScopeSiblings)` for path-style URLs", "commit": "81a61eb" },
+        { "description": "Localization: `NormalizeLang` for BCP-47 tags, `FallbackChain` (exact tag → shorter prefixes → default language), `Label`, `Name`, `Slug`, `Breadcrumb` recording the language each crumb resolved to, and `BySlug` over effective slugs where explicit slugs win over fallbacks", "commit": "81a61eb" },
+        { "description": "`flat` codec: read CSV, TSV and PSV with a header row or a `Columns` mapping, `#` comments and blank lines, one row per node and language, extra columns to `Attrs`, and multi-parent nodes from repeated rows; deterministic writer", "commit": "2ef27e0" },
+        { "description": "JSON `Document` format (`ParseDocument` strict, `JSON` deterministic) and the `schema` package embedding a JSON Schema generated from the Go types", "commit": "2ef27e0" },
+        { "description": "`taxonomykit` CLI: `validate`, `convert --to csv|tsv|psv|json`, `tree --lang --root --depth`, `lineage --all`", "commit": "b29d441" }
+      ]
+    }
+  ]
 }
