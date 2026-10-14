@@ -1,0 +1,59 @@
+site_name: TaxonomyKit
+site_description: Hierarchical taxonomy toolkit for Go — load, validate, navigate, localize and convert category trees.
+site_url: https://grokify.github.io/taxonomykit/
+repo_url: https://github.com/grokify/taxonomykit
+repo_name: grokify/taxonomykit
+
+theme:
+  name: material
+  palette:
+    - scheme: default
+      primary: blue grey
+      accent: teal
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    - scheme: slate
+      primary: blue grey
+      accent: teal
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+  features:
+    - navigation.sections
+    - navigation.expand
+    - navigation.top
+    - search.highlight
+    - content.code.copy
+
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+  - tables
+  - toc:
+      permalink: true
+
+nav:
+  - Home: index.md
+  - User Guide:
+      - Installation: guides/installation.md
+      - Quick Start: guides/quickstart.md
+      - Concepts: guides/concepts.md
+      - File Formats: guides/file-formats.md
+      - Navigating a Tree: guides/navigation.md
+      - Localization: guides/localization.md
+      - Validation: guides/validation.md
+  - Reference:
+      - CLI Reference: guides/cli-reference.md
+  - Specifications:
+      - Product Requirements: specs/PRD.md
+      - Technical Requirements: specs/TRD.md
+      - Plan: specs/PLAN.md
+      - Roadmap: specs/ROADMAP.md
+  - Releases:
+      - v0.1.0: releases/v0.1.0.md

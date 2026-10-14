@@ -19,7 +19,7 @@ Hierarchical taxonomy toolkit for Go: load, validate, navigate, localize, and co
 
 ## Status
 
-v0.1 in progress: the core tree, codecs, schema and CLI are implemented; SKOS interchange and document operations follow in v0.2. The design is specified in [`docs/specs/`](docs/specs/) (PRD, TRD, PLAN, ROADMAP).
+v0.1.0: the core tree, codecs, schema and CLI. SKOS interchange and document operations follow in v0.2. Documentation is at [grokify.github.io/taxonomykit](https://grokify.github.io/taxonomykit/) (user guide, CLI reference, specs, release notes); the design is specified in [`docs/specs/`](docs/specs/).
 
 ## Why
 
