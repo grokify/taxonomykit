@@ -3,6 +3,7 @@
 [![Go CI][go-ci-svg]][go-ci-url]
 [![Go Lint][go-lint-svg]][go-lint-url]
 [![Docs][docs-godoc-svg]][docs-godoc-url]
+![coverage](https://img.shields.io/badge/coverage-93.1%25-brightgreen)
 [![License][license-svg]][license-url]
 
  [go-ci-svg]: https://github.com/grokify/taxonomykit/actions/workflows/go-ci.yaml/badge.svg?branch=main
