@@ -23,7 +23,7 @@
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
     
     
       
@@ -31,7 +31,7 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
       
         
         <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
@@ -1257,23 +1257,23 @@
 </code></pre></div>
 <h2 id="4-core-types-and-rules">4. Core types and rules<a class="headerlink" href="#4-core-types-and-rules" title="Permanent link">&para;</a></h2>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="kd">type</span><span class="w"> </span><span class="nx">Node</span><span class="w"> </span><span class="kd">struct</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">    </span><span class="nx">ID</span><span class="w">      </span><span class="kt">string</span><span class="w">            </span><span class="s">`json:"id"`</span>
-<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">    </span><span class="nx">Parents</span><span class="w"> </span><span class="p">[]</span><span class="kt">string</span><span class="w">          </span><span class="s">`json:"parents,omitempty"`</span><span class="w"> </span><span class="c1">// Parents[0] is the primary parent</span>
-<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">    </span><span class="nx">Labels</span><span class="w">  </span><span class="nx">Labels</span><span class="w">            </span><span class="s">`json:"labels"`</span><span class="w">            </span><span class="c1">// keyed by BCP-47 tag, lowercase ("en", "es", "pt-br")</span>
-<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="w">    </span><span class="nx">Order</span><span class="w">   </span><span class="o">*</span><span class="kt">int</span><span class="w">              </span><span class="s">`json:"order,omitempty"`</span><span class="w">   </span><span class="c1">// explicit sibling order; nil = sort by name</span>
-<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="w">    </span><span class="nx">Attrs</span><span class="w">   </span><span class="kt">map</span><span class="p">[</span><span class="kt">string</span><span class="p">]</span><span class="kt">string</span><span class="w"> </span><span class="s">`json:"attrs,omitempty"`</span><span class="w">   </span><span class="c1">// opaque</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">    </span><span class="nx">ID</span><span class="w">      </span><span class="kt">string</span><span class="w">            </span><span class="s">`json:&quot;id&quot;`</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">    </span><span class="nx">Parents</span><span class="w"> </span><span class="p">[]</span><span class="kt">string</span><span class="w">          </span><span class="s">`json:&quot;parents,omitempty&quot;`</span><span class="w"> </span><span class="c1">// Parents[0] is the primary parent</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">    </span><span class="nx">Labels</span><span class="w">  </span><span class="nx">Labels</span><span class="w">            </span><span class="s">`json:&quot;labels&quot;`</span><span class="w">            </span><span class="c1">// keyed by BCP-47 tag, lowercase (&quot;en&quot;, &quot;es&quot;, &quot;pt-br&quot;)</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="w">    </span><span class="nx">Order</span><span class="w">   </span><span class="o">*</span><span class="kt">int</span><span class="w">              </span><span class="s">`json:&quot;order,omitempty&quot;`</span><span class="w">   </span><span class="c1">// explicit sibling order; nil = sort by name</span>
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="w">    </span><span class="nx">Attrs</span><span class="w">   </span><span class="kd">map</span><span class="p">[</span><span class="kt">string</span><span class="p">]</span><span class="kt">string</span><span class="w"> </span><span class="s">`json:&quot;attrs,omitempty&quot;`</span><span class="w">   </span><span class="c1">// opaque</span>
 <a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="p">}</span>
 <a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="kd">type</span><span class="w"> </span><span class="nx">Label</span><span class="w"> </span><span class="kd">struct</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="w">    </span><span class="nx">Name</span><span class="w"> </span><span class="kt">string</span><span class="w">   </span><span class="s">`json:"name"`</span>
-<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="w">    </span><span class="nx">Slug</span><span class="w"> </span><span class="kt">string</span><span class="w">   </span><span class="s">`json:"slug,omitempty"`</span><span class="w"> </span><span class="c1">// empty means "no URL in this language"; never derived from Name</span>
-<a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="w">    </span><span class="nx">Alt</span><span class="w">  </span><span class="p">[]</span><span class="kt">string</span><span class="w"> </span><span class="s">`json:"alt,omitempty"`</span>
+<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="w">    </span><span class="nx">Name</span><span class="w"> </span><span class="kt">string</span><span class="w">   </span><span class="s">`json:&quot;name&quot;`</span>
+<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="w">    </span><span class="nx">Slug</span><span class="w"> </span><span class="kt">string</span><span class="w">   </span><span class="s">`json:&quot;slug,omitempty&quot;`</span><span class="w"> </span><span class="c1">// empty means &quot;no URL in this language&quot;; never derived from Name</span>
+<a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="w">    </span><span class="nx">Alt</span><span class="w">  </span><span class="p">[]</span><span class="kt">string</span><span class="w"> </span><span class="s">`json:&quot;alt,omitempty&quot;`</span>
 <a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a><span class="p">}</span>
-<a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a><span class="kd">type</span><span class="w"> </span><span class="nx">Labels</span><span class="w"> </span><span class="kt">map</span><span class="p">[</span><span class="kt">string</span><span class="p">]</span><span class="nx">Label</span>
+<a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a><span class="kd">type</span><span class="w"> </span><span class="nx">Labels</span><span class="w"> </span><span class="kd">map</span><span class="p">[</span><span class="kt">string</span><span class="p">]</span><span class="nx">Label</span>
 <a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a>
 <a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a><span class="kd">type</span><span class="w"> </span><span class="nx">Document</span><span class="w"> </span><span class="kd">struct</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a><span class="w">    </span><span class="nx">Version</span><span class="w">     </span><span class="kt">string</span><span class="w"> </span><span class="s">`json:"version"`</span><span class="w">     </span><span class="c1">// "1"</span>
-<a id="__codelineno-2-17" name="__codelineno-2-17" href="#__codelineno-2-17"></a><span class="w">    </span><span class="nx">DefaultLang</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="s">`json:"defaultLang"`</span>
-<a id="__codelineno-2-18" name="__codelineno-2-18" href="#__codelineno-2-18"></a><span class="w">    </span><span class="nx">Nodes</span><span class="w">       </span><span class="p">[]</span><span class="nx">Node</span><span class="w"> </span><span class="s">`json:"nodes"`</span>
+<a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a><span class="w">    </span><span class="nx">Version</span><span class="w">     </span><span class="kt">string</span><span class="w"> </span><span class="s">`json:&quot;version&quot;`</span><span class="w">     </span><span class="c1">// &quot;1&quot;</span>
+<a id="__codelineno-2-17" name="__codelineno-2-17" href="#__codelineno-2-17"></a><span class="w">    </span><span class="nx">DefaultLang</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="s">`json:&quot;defaultLang&quot;`</span>
+<a id="__codelineno-2-18" name="__codelineno-2-18" href="#__codelineno-2-18"></a><span class="w">    </span><span class="nx">Nodes</span><span class="w">       </span><span class="p">[]</span><span class="nx">Node</span><span class="w"> </span><span class="s">`json:&quot;nodes&quot;`</span>
 <a id="__codelineno-2-19" name="__codelineno-2-19" href="#__codelineno-2-19"></a><span class="p">}</span>
 </code></pre></div>
 <p>Rules enforced by <code>Build</code>/<code>Validate</code>:</p>
@@ -1411,7 +1411,7 @@
       <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.sections", "navigation.expand", "navigation.top", "search.highlight", "content.code.copy"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
       
     
   </body>
